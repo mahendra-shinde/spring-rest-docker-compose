@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  app:
+    ## Build using "api-app/Dockerfile"
+    build: api-app/
+    image: api-app:latest
+    restart: on-failure
+    networks:
+      net1:
+        ipv4_address: 172.18.0.5
+    environment:
+      ## Using built-in service discovery in docker
+      DBURL: db
+      DBNAME: orderdb
+      DBUSER: mahendra
+      DBPASS: pass@1234
+
+    depends_on:
+      - db
+
+  db:
+    ## Build using "db/Dockerfile"
+    build: db
+    image: sample-db:latest
+    environment:
+      MYSQL_USER: mahendra
+      MYSQL_DATABASE: orderdb
+      MYSQL_ROOT_PASSWORD: passwd@1234
+      MYSQL_PASSWORD: pass@1234
+    networks:
+      net1:
+        ipv4_address: 172.18.0.4
+
+networks:
+  net1:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.18.0.0/24"
