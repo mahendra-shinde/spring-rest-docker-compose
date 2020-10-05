@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  selector:
+    matchLabels:
+      app: sample-app
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: sample-app
+        tier: app
+    spec:
+      containers:
+      - name: app
+        image: mahendrshinde/api-app
+        env:
+          - name: DBURL
+            valueFrom:
+              configMapKeyRef:
+                key: MYSQL_URL
+                name: dbconfig        
+          - name: DBUSER
+            valueFrom:
+              configMapKeyRef:
+                key: MYSQL_USER    
+                name: dbconfig
+          - name: DBPASS
+            valueFrom:
+              configMapKeyRef:
+                key: MYSQL_PASSWORD
+                name: dbconfig
+          - name: DBNAME
+            valueFrom:
+              configMapKeyRef:
+                key: MYSQL_DATABASE   
+                name: dbconfig
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080

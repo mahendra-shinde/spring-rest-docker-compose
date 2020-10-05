@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+spec:
+  selector:
+    matchLabels:
+      app: sample-app
+      tier: data
+  template:
+    metadata:
+      labels:
+        app: sample-app
+        tier: data
+    spec:
+      containers:
+      - name: db
+        image: mahendrshinde/api-db
+        envFrom:
+          - configMapRef:
+              name: dbconfig
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3306
