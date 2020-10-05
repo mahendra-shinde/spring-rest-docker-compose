@@ -4,7 +4,6 @@ services:
   app:
     ## Build using "api-app/Dockerfile"
     build: api-app/
-    image: api-app:latest
     restart: on-failure
     ports:
       - "8080:8080"
@@ -24,7 +23,6 @@ services:
   db:
     ## Build using "db/Dockerfile"
     build: db
-    image: sample-db:latest
     environment:
       MYSQL_USER: mahendra
       MYSQL_DATABASE: orderdb
