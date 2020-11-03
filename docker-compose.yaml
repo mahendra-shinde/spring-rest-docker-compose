@@ -3,7 +3,8 @@ version: "3"
 services:
   app:
     ## Build using "api-app/Dockerfile"
-    build: api-app/
+    #build: api-app/
+    image: mahendrshinde/api-app
     restart: on-failure
     ports:
       - "8080:8080"
@@ -22,7 +23,8 @@ services:
 
   db:
     ## Build using "db/Dockerfile"
-    build: db
+    #build: db
+    image: mahendrshinde/api-db
     environment:
       MYSQL_USER: mahendra
       MYSQL_DATABASE: orderdb
