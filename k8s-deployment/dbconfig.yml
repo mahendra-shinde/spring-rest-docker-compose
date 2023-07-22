@@ -3,8 +3,8 @@ kind: Secret
 metadata:
   name: dbconfig
 data:
-  MYSQL_DATABASE: orderdb
-  MYSQL_USER: mahendra
-  MYSQL_PASSWORD: pass@1234 
-  MYSQL_ROOT_PASSWORD: pass@12345
-  MYSQL_URL: db-svc
+  MYSQL_DATABASE: b3JkZXJkYgo=
+  MYSQL_USER: bWFoZW5kcmEK
+  MYSQL_PASSWORD: cGFzc0AxMjM0Cg== 
+  MYSQL_ROOT_PASSWORD: cGFzc0AxMjM0NQo=
+  MYSQL_URL: ZGItc3ZjCg==

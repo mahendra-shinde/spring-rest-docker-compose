@@ -6,7 +6,7 @@ spec:
   selector:
     app: sample-app
     tier: app
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     ## While running on production cluster, please use 'port: 80'
   - port: 80
