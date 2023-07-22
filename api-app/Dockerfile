@@ -19,4 +19,4 @@ EXPOSE 8080
 ## Below values are DEFAULTS, Must be Overidden in deployment artifacts
 ENV DBURL=orderdb DBUSER=mahendra DBPASS=pass@1234 DBNAME=orderdb
 
-CMD [ "java","-jar","/app/api-app.jar" ]
+CMD [ "java","-jar","/app/api-app.jar"]

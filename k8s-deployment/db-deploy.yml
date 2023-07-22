@@ -13,12 +13,20 @@ spec:
         app: sample-app
         tier: data
     spec:
+      volumes:
+        - name: dbvol
+          persistentVolumeClaim:
+            claimName: db-pvc
       containers:
       - name: db
         image: mahendrshinde/api-db
         envFrom:
-          - configMapRef:
+          - secretRef:
               name: dbconfig
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: dbvol
+
         resources:
           limits:
             memory: "256Mi"

@@ -19,22 +19,22 @@ spec:
         env:
           - name: DBURL
             valueFrom:
-              configMapKeyRef:
+              secretKeyRef:
                 key: MYSQL_URL
                 name: dbconfig        
           - name: DBUSER
             valueFrom:
-              configMapKeyRef:
+              secretKeyRef:
                 key: MYSQL_USER    
                 name: dbconfig
           - name: DBPASS
             valueFrom:
-              configMapKeyRef:
+              secretKeyRef:
                 key: MYSQL_PASSWORD
                 name: dbconfig
           - name: DBNAME
             valueFrom:
-              configMapKeyRef:
+              secretKeyRef:
                 key: MYSQL_DATABASE   
                 name: dbconfig
         resources:

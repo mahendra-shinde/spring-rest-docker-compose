@@ -10,7 +10,7 @@ services:
       - "8080:8080"
     networks:
       net1:
-        ipv4_address: 172.18.0.5
+        
     environment:
       ## Using built-in service discovery in docker
       DBURL: db
@@ -32,11 +32,11 @@ services:
       MYSQL_PASSWORD: pass@1234
     networks:
       net1:
-        ipv4_address: 172.18.0.4
+        
 
 networks:
   net1:
     ipam:
       driver: default
       config:
-        - subnet: "172.18.0.0/24"
+        - subnet: "172.20.0.0/24"
