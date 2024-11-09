@@ -17,6 +17,8 @@ spec:
       - name: app
         image: mahendrshinde/api-app
         env:
+          - name: HIBERNATE_DIALECT
+            value: org.hibernate.dialect.MySQLDialect
           - name: DBURL
             valueFrom:
               secretKeyRef:
